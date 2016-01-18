@@ -23,7 +23,7 @@ Host the site locally at localhost:8000
 mkdocs serve
 ```
 
-Deploy the site to http://cs-si-ucr.github.io/CS14-Spring15/
+Deploy the site to http://cs-si-ucr.github.io/cs14-win16/
 ```sh
 mkdocs gh-deploy
 ```
