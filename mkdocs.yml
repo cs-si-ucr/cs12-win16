@@ -1,0 +1,15 @@
+site_name: "CS 12 SI Labs: Winter 2015"
+pages:
+    - [index.md, "Home"]
+#    - [lab_week_01.md, "Lab Week 1"]
+#    - [lab_week_02.md, "Lab Week 2"]
+    - [lab_week_03.md, "Lab Week 3"]
+#    - [lab_week_04.md, "Lab Week 4"]
+#    - [lab_week_05.md, "Lab Week 5"]
+#    - [lab_week_06.md, "Lab Week 6"]
+#    - [lab_week_07.md, "Lab Week 7"]
+#    - [lab_week_08.md, "Lab Week 8"]
+#    - [lab_week_09.md, "Lab Week 9"]
+#    - [notes.md, "Notes"]
+theme: readthedocs
+
