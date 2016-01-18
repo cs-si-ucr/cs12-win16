@@ -1,0 +1,74 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to CS12 SI!\n\n\nThis is where all of the labs will be posted.\n\n\nWhat is SI?\n\n\nSupplemental Instruction is a series of weekly review sessions for students\ntaking historically difficult courses. It offers students the chance to\ncollaborate, discuss challenging concepts, and study for exams.\n\n\nWhat isn\u2019t SI?\n\n\nSupplemental Instruction is not a lecture. SI Leaders are not there to teach you new material but to lead you in reviewing the material covered in lecture\nand to help guide you in understanding the subject.\n\n\nWho should go?\n\n\nAnyone who has the time to spare; whether you have been programming on the\nside for a number of years or if your only experience with computers is\nwriting essays and checking Facebook, I promise you I will be able to help you\nlearn something new that will help your perform better in the course.\n\n\nHowever, if you are having trouble in the class or think you might run into\ntrouble, you should definitely attend. CS 10 has a high dropout rate, along\nwith a high failure rate, so if you are running into trouble, let me help you.\nDo not be intimidated if you are trying to start coming later in the quarter\n(though try not to wait that long), I will help bring you up to speed.\n\n\nWith that in mind, I should mention that SI is required for learning community\nstudents. If you are not attending, you will be dropped from your learning\ncommunity.\n\n\nGuidelines:\n\n\n\n\nBe respectful - This includes silencing your cell phones\nand not using them during sessions.\n\n\nParticipate - You won\u2019t get very much out of SI if you\ndon\u2019t.\n\n\nNo food or drink besides water - This is a rule placed\nby the administration. I will enforce it.\n\n\nLate entry and early exit should be quiet - I realize\neveryone\u2019s schedules are different. However, please do not\nenter or leave in such a way that draws everyone\u2019s\nattention to you.\n\n\nSign in - There will usually be a working computer for\nyou to sign into when you arrive. Please use it to check in\n(even if you\u2019re not on time).", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-cs12-si", 
+            "text": "This is where all of the labs will be posted.", 
+            "title": "Welcome to CS12 SI!"
+        }, 
+        {
+            "location": "/#what-is-si", 
+            "text": "Supplemental Instruction is a series of weekly review sessions for students\ntaking historically difficult courses. It offers students the chance to\ncollaborate, discuss challenging concepts, and study for exams.", 
+            "title": "What is SI?"
+        }, 
+        {
+            "location": "/#what-isnt-si", 
+            "text": "Supplemental Instruction is not a lecture. SI Leaders are not there to teach you new material but to lead you in reviewing the material covered in lecture\nand to help guide you in understanding the subject.", 
+            "title": "What isn\u2019t SI?"
+        }, 
+        {
+            "location": "/#who-should-go", 
+            "text": "Anyone who has the time to spare; whether you have been programming on the\nside for a number of years or if your only experience with computers is\nwriting essays and checking Facebook, I promise you I will be able to help you\nlearn something new that will help your perform better in the course.  However, if you are having trouble in the class or think you might run into\ntrouble, you should definitely attend. CS 10 has a high dropout rate, along\nwith a high failure rate, so if you are running into trouble, let me help you.\nDo not be intimidated if you are trying to start coming later in the quarter\n(though try not to wait that long), I will help bring you up to speed.  With that in mind, I should mention that SI is required for learning community\nstudents. If you are not attending, you will be dropped from your learning\ncommunity.", 
+            "title": "Who should go?"
+        }, 
+        {
+            "location": "/#guidelines", 
+            "text": "Be respectful - This includes silencing your cell phones\nand not using them during sessions.  Participate - You won\u2019t get very much out of SI if you\ndon\u2019t.  No food or drink besides water - This is a rule placed\nby the administration. I will enforce it.  Late entry and early exit should be quiet - I realize\neveryone\u2019s schedules are different. However, please do not\nenter or leave in such a way that draws everyone\u2019s\nattention to you.  Sign in - There will usually be a working computer for\nyou to sign into when you arrive. Please use it to check in\n(even if you\u2019re not on time).", 
+            "title": "Guidelines:"
+        }, 
+        {
+            "location": "/lab_week_03/", 
+            "text": "Lab 3: Stacks and Queues\n\n\nStacks\n\n\nStacks are LIFO (last in, first out) data structures.\nYou've already encountered stacks before.\nRecursion takes advantage of the function call stack.\n\n\nHere's a small demo of how stacks work:\n\n\n#include \niostream\n\n#include \nstack\n\n\nusing namespace std;\n\nint main() {\n  stack\nint\n s;\n  for(unsigned i = 0; i \n 6; ++i) {\n    cout \n \nPushing i (\n \n i \n \n)\n \n endl;\n    s.push(i);\n  }\n\n  while (!s.empty()) {\n    cout \n \nPopping (\n \n s.top() \n \n)\n \n endl;\n    s.pop();\n  }\n\n  if (s.empty()) cout \n \nstack is empty\n \n endl;\n\n  return 0;\n}\n\n\n\n\nTry running that and see what is output.\nGo ahead. I'll wait.\n\n\nWere you surprised by the output?\n\n\nQueues\n\n\nQueues are FIFO (first in, first out) data structures.\nThey're structured similarly to checkout lines at the grocery store;\nWhoever gets in line first gets serviced first.\n\n\nHere's a small demo of how queues work:\n\n\n#include \niostream\n\n#include \nqueue\n\n\nusing namespace std;\n\nint main() {\n  queue\nint\n q;\n  for(unsigned i = 0; i \n 6; ++i) {\n    cout \n \nPushing i (\n \n i \n \n)\n \n endl;\n    q.push(i);\n  }\n\n  while (!q.empty()) {\n    cout \n \nPopping (\n \n q.front() \n \n)\n \n endl;\n    q.pop();\n  }\n\n  if (q.empty()) cout \n \nqueue is empty\n \n endl;\n\n  return 0;\n}\n\n\n\n\nRun it!!\n\n\nExercise 1\n\n\nImplement your own \nstack\n and \nqueue\n!\n\n\nThe \nstack\n should have the following public members:\n\n\ntemplate \ntypename T\n\nclass myStack {\n  public:\n    void push(T);       // adds an element to the top of the stack\n    T top() const;      // gets the element at the top of the stack\n    bool pop();         // returns false if failed\n    bool empty() const; // returned true if empty\n};\n\n\n\n\nThe \nqueue\n should have the following public members:\n\n\ntemplate \ntypename T\n\nclass myQueue {\n  public:\n    void push(T);       // adds an element to the back of the queue\n    T front() const;    // gets the element at the front of the queue\n    bool pop();         // returns false if failed\n    bool empty() const; // returned true if empty\n};\n\n\n\n\nImportant\n: Use a \ndeque\n, \nlist\n, or \nvector\n to do all of the heavy lifting for you.\nIn other words, if you're using arrays and nodes to solve this, you're doing too much work.\n\n\nExercise 2\n\n\nYou're all probably able to recite the recursive factorial function in your sleep:\n\n\nunsigned long fact(unsigned long n) {\n  if (n \n 2) return 1;\n  return n * fact(n - 1);\n}\n\n\n\n\nWrite a non-recursive factorial function that takes advantage of \nstack\n similarly to how recursion works.\n\n\nStretch-goal Exercise 1\n\n\nMake a \nqueue\n using two stacks!\n\n\nStretch-goal Exercise 2\n\n\nMake a new class \nminStack\n that has the same efficiency as a \nstack\n for \npush\n and \npop\n, as well as constant lookup for the minimum element in the stack.\n\n\nIn other words, I should be able to do this all in constant time:\n\n\nint main() {\n  minStack\nint\n ms;\n  ms.push(3);\n  cout \n \nmin: \n \n ms.min() \n \n(pushed \n \n ms.top() \n \n)\n \n endl;\n  ms.push(1);\n  cout \n \nmin: \n \n ms.min() \n \n(pushed \n \n ms.top() \n \n)\n \n endl;\n  ms.push(4);\n  cout \n \nmin: \n \n ms.min() \n \n(pushed \n \n ms.top() \n \n)\n \n endl;\n  ms.push(1);\n  cout \n \nmin: \n \n ms.min() \n \n(pushed \n \n ms.top() \n \n)\n \n endl;\n  ms.push(5);\n  cout \n \nmin: \n \n ms.min() \n \n(pushed \n \n ms.top() \n \n)\n \n endl;\n  ms.push(9);\n  cout \n \nmin: \n \n ms.min() \n \n(pushed \n \n ms.top() \n \n)\n \n endl;\n  ms.push(2);\n  cout \n \nmin: \n \n ms.min() \n \n(pushed \n \n ms.top() \n \n)\n \n endl;\n  ms.push(6);\n  cout \n \nmin: \n \n ms.min() \n \n(pushed \n \n ms.top() \n \n)\n \n endl;\n\n  while (!ms.empty()) {\n    int temp = ms.top();\n    ms.pop();\n    cout \n \nmin: \n \n ms.min() \n \n(popped \n \n temp \n \n)\n \n endl;\n  }\n\n  return 0;\n}\n\n\n\n\nPrototype:\n\n\ntemplate \ntypename T\n\nclass minStack() {\n  public:\n    void push(T);       // adds an element to the top of the stack\n    T top() const;      // gets the element at the top of the stack\n    T min() const;      // gets minimum element\n    bool pop();         // returns false if failed\n    bool empty() const; // returned true if empty\n}\n\n\n\n\n(Hint: you can use whatever internal data type you'd like)\n\n\n(\nHint:\n use two stacks)", 
+            "title": "Lab Week 3"
+        }, 
+        {
+            "location": "/lab_week_03/#lab-3-stacks-and-queues", 
+            "text": "", 
+            "title": "Lab 3: Stacks and Queues"
+        }, 
+        {
+            "location": "/lab_week_03/#stacks", 
+            "text": "Stacks are LIFO (last in, first out) data structures.\nYou've already encountered stacks before.\nRecursion takes advantage of the function call stack.  Here's a small demo of how stacks work:  #include  iostream \n#include  stack \n\nusing namespace std;\n\nint main() {\n  stack int  s;\n  for(unsigned i = 0; i   6; ++i) {\n    cout    Pushing i (    i    )    endl;\n    s.push(i);\n  }\n\n  while (!s.empty()) {\n    cout    Popping (    s.top()    )    endl;\n    s.pop();\n  }\n\n  if (s.empty()) cout    stack is empty    endl;\n\n  return 0;\n}  Try running that and see what is output.\nGo ahead. I'll wait.  Were you surprised by the output?", 
+            "title": "Stacks"
+        }, 
+        {
+            "location": "/lab_week_03/#queues", 
+            "text": "Queues are FIFO (first in, first out) data structures.\nThey're structured similarly to checkout lines at the grocery store;\nWhoever gets in line first gets serviced first.  Here's a small demo of how queues work:  #include  iostream \n#include  queue \n\nusing namespace std;\n\nint main() {\n  queue int  q;\n  for(unsigned i = 0; i   6; ++i) {\n    cout    Pushing i (    i    )    endl;\n    q.push(i);\n  }\n\n  while (!q.empty()) {\n    cout    Popping (    q.front()    )    endl;\n    q.pop();\n  }\n\n  if (q.empty()) cout    queue is empty    endl;\n\n  return 0;\n}  Run it!!", 
+            "title": "Queues"
+        }, 
+        {
+            "location": "/lab_week_03/#exercise-1", 
+            "text": "Implement your own  stack  and  queue !  The  stack  should have the following public members:  template  typename T \nclass myStack {\n  public:\n    void push(T);       // adds an element to the top of the stack\n    T top() const;      // gets the element at the top of the stack\n    bool pop();         // returns false if failed\n    bool empty() const; // returned true if empty\n};  The  queue  should have the following public members:  template  typename T \nclass myQueue {\n  public:\n    void push(T);       // adds an element to the back of the queue\n    T front() const;    // gets the element at the front of the queue\n    bool pop();         // returns false if failed\n    bool empty() const; // returned true if empty\n};  Important : Use a  deque ,  list , or  vector  to do all of the heavy lifting for you.\nIn other words, if you're using arrays and nodes to solve this, you're doing too much work.", 
+            "title": "Exercise 1"
+        }, 
+        {
+            "location": "/lab_week_03/#exercise-2", 
+            "text": "You're all probably able to recite the recursive factorial function in your sleep:  unsigned long fact(unsigned long n) {\n  if (n   2) return 1;\n  return n * fact(n - 1);\n}  Write a non-recursive factorial function that takes advantage of  stack  similarly to how recursion works.", 
+            "title": "Exercise 2"
+        }, 
+        {
+            "location": "/lab_week_03/#stretch-goal-exercise-1", 
+            "text": "Make a  queue  using two stacks!", 
+            "title": "Stretch-goal Exercise 1"
+        }, 
+        {
+            "location": "/lab_week_03/#stretch-goal-exercise-2", 
+            "text": "Make a new class  minStack  that has the same efficiency as a  stack  for  push  and  pop , as well as constant lookup for the minimum element in the stack.  In other words, I should be able to do this all in constant time:  int main() {\n  minStack int  ms;\n  ms.push(3);\n  cout    min:     ms.min()    (pushed     ms.top()    )    endl;\n  ms.push(1);\n  cout    min:     ms.min()    (pushed     ms.top()    )    endl;\n  ms.push(4);\n  cout    min:     ms.min()    (pushed     ms.top()    )    endl;\n  ms.push(1);\n  cout    min:     ms.min()    (pushed     ms.top()    )    endl;\n  ms.push(5);\n  cout    min:     ms.min()    (pushed     ms.top()    )    endl;\n  ms.push(9);\n  cout    min:     ms.min()    (pushed     ms.top()    )    endl;\n  ms.push(2);\n  cout    min:     ms.min()    (pushed     ms.top()    )    endl;\n  ms.push(6);\n  cout    min:     ms.min()    (pushed     ms.top()    )    endl;\n\n  while (!ms.empty()) {\n    int temp = ms.top();\n    ms.pop();\n    cout    min:     ms.min()    (popped     temp    )    endl;\n  }\n\n  return 0;\n}  Prototype:  template  typename T \nclass minStack() {\n  public:\n    void push(T);       // adds an element to the top of the stack\n    T top() const;      // gets the element at the top of the stack\n    T min() const;      // gets minimum element\n    bool pop();         // returns false if failed\n    bool empty() const; // returned true if empty\n}  (Hint: you can use whatever internal data type you'd like)  ( Hint:  use two stacks)", 
+            "title": "Stretch-goal Exercise 2"
+        }
+    ]
+}
