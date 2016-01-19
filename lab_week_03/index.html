@@ -66,6 +66,14 @@
                 
                     <li><a class="toctree-l4" href="#structs">Structs</a></li>
                 
+                    <li><a class="toctree-l4" href="#classes">Classes</a></li>
+                
+                    <li><a class="toctree-l4" href="#accessors-mutators-and-private-helper-functions">Accessors, Mutators, and Private Helper Functions</a></li>
+                
+                    <li><a class="toctree-l4" href="#constructors">Constructors</a></li>
+                
+                    <li><a class="toctree-l4" href="#bonus">Bonus</a></li>
+                
             
             </ul>
         
@@ -107,7 +115,7 @@
                 <h1 id="lab-3-structs-and-classes">Lab 3: Structs and Classes</h1>
 <h2 id="structs">Structs</h2>
 <p>Structs are a way to create new datatypes that are combinations of smaller datatypes.</p>
-<p>Here's how you would use them:</p>
+<p>Here's the syntax for creating a struct:</p>
 <pre><code class="c++">struct StructName {
     Type1 field1;
     Type2 field2;
@@ -135,6 +143,87 @@ void f1(const StructName&amp; arg1); // accepts StructName by const reference
 
 StructName f2();                 // returns StructName
 </code></pre>
+
+<h2 id="classes">Classes</h2>
+<p>Classes are very similar to structs in that they can hold their own data.
+Unlike structs however, they can also hold contain their own methods.</p>
+<pre><code class="c++">class MyClass {
+    public:
+        Type1 publicData;
+        Type2 f1();
+    private:
+        Type3 privateData;
+        Type4 f2();
+};
+</code></pre>
+
+<p>First, you should notice the <code>public</code> and <code>private</code> keywords.
+This is one of the big differences between structs and classes.
+In a struct, all members are public.
+This can't be changed.
+In a class, the programmer decides whether each element is <code>public</code> or <code>private</code>.
+<code>private</code> members can't be accessed with the dot operator.</p>
+<pre><code class="c++">MyClass obj;
+obj.publicData;  // this is allowed
+obj.privateData; // this isn't allowed
+</code></pre>
+
+<p>Another difference is the concept of member functions.
+You've already been using member functions.
+Some examples include <code>.size()</code>, <code>.at(int)</code>, and <code>.find(...)</code>.</p>
+<p>Now, combine your knowledge of member function usage and <code>public</code> and <code>private</code> permissions, and it's easy to see how to use member functions:</p>
+<pre><code class="c++">MyClass obj;
+obj.f1(); // allowed because it's public
+obj.f2(); // not allowed because it's private
+</code></pre>
+
+<p>Notice that the parentheses mean that the member is a function, not just data.</p>
+<p>An important thing you will need to learn now is "encapsulation."
+Think about cars for a moment.
+To drive a car well, you don't need to know how the engine works.
+You don't need to keep track of every little piece;
+instead you just focus on the steering wheel and pressing the pedals.
+Similarly for classes, the users of your class shouldn't have access to the internal details.
+They might mess something up!
+Instead, you provide a clean interface that abstracts the details away.
+Refer to your book on how to do this.</p>
+<h2 id="accessors-mutators-and-private-helper-functions">Accessors, Mutators, and Private Helper Functions</h2>
+<pre><code class="c++">class MyClass {
+    private:
+        Type data;
+        void helper();
+
+    public:
+        void accessor(int x) const; // this function can't change any private data
+        void mutator(int x);        // this function can change private data
+};
+</code></pre>
+
+<p>Mutators aren't <strong>required</strong> to change data;
+they only have the ability to.
+Accessors that change private data will cause compiler errors.</p>
+<p>Class functions declared <code>private</code> are known as "helper functions".
+This is due to the fact that they can only be called from within the class's own member functions.</p>
+<pre><code class="c++">MyClass obj;
+obj.helper();  // not allowed
+obj.mutator(); // mutator is allowed to call helper
+</code></pre>
+
+<p>NOTE: functions declared as const (accessors) aren't allowed to ever call a non-const function (mutator).</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="c++">class MyClass {
+    public:
+        MyClass();      // notice: NO return type
+        MyClass(int x); // also, it can be overloaded to accept different parameters
+};
+</code></pre>
+
+<p>Constructors exist to allow you to start your class at a known state.
+They have <strong>no</strong> return type.
+When an object of your class is created, the constructor is called.
+If you don't write a constructor for your class, a default constructor will be used.</p>
+<h2 id="bonus">Bonus</h2>
+<p>If you want to learn a cool trick that will make coding easier in the future, look up <a href="http://lmgtfy.com/?q=c%2B%2B+initialization+lists">initialization lists</a></p>
               
             </div>
           </div>
