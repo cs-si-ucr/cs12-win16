@@ -62,19 +62,9 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#lab-3-stacks-and-queues">Lab 3: Stacks and Queues</a></li>
+                <li class="toctree-l3"><a href="#lab-3-structs-and-classes">Lab 3: Structs and Classes</a></li>
                 
-                    <li><a class="toctree-l4" href="#stacks">Stacks</a></li>
-                
-                    <li><a class="toctree-l4" href="#queues">Queues</a></li>
-                
-                    <li><a class="toctree-l4" href="#exercise-1">Exercise 1</a></li>
-                
-                    <li><a class="toctree-l4" href="#exercise-2">Exercise 2</a></li>
-                
-                    <li><a class="toctree-l4" href="#stretch-goal-exercise-1">Stretch-goal Exercise 1</a></li>
-                
-                    <li><a class="toctree-l4" href="#stretch-goal-exercise-2">Stretch-goal Exercise 2</a></li>
+                    <li><a class="toctree-l4" href="#structs">Structs</a></li>
                 
             
             </ul>
@@ -114,150 +104,37 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="lab-3-stacks-and-queues">Lab 3: Stacks and Queues</h1>
-<h2 id="stacks">Stacks</h2>
-<p>Stacks are LIFO (last in, first out) data structures.
-You've already encountered stacks before.
-Recursion takes advantage of the function call stack.</p>
-<p>Here's a small demo of how stacks work:</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
-#include &lt;stack&gt;
-
-using namespace std;
-
-int main() {
-  stack&lt;int&gt; s;
-  for(unsigned i = 0; i &lt; 6; ++i) {
-    cout &lt;&lt; &quot;Pushing i (&quot; &lt;&lt; i &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-    s.push(i);
-  }
-
-  while (!s.empty()) {
-    cout &lt;&lt; &quot;Popping (&quot; &lt;&lt; s.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-    s.pop();
-  }
-
-  if (s.empty()) cout &lt;&lt; &quot;stack is empty&quot; &lt;&lt; endl;
-
-  return 0;
-}
+                <h1 id="lab-3-structs-and-classes">Lab 3: Structs and Classes</h1>
+<h2 id="structs">Structs</h2>
+<p>Structs are a way to create new datatypes that are combinations of smaller datatypes.</p>
+<p>Here's how you would use them:</p>
+<pre><code class="c++">struct StructName {
+    Type1 field1;
+    Type2 field2;
+    // ...
+};  // &lt;-- Notice this semicolon
 </code></pre>
 
-<p>Try running that and see what is output.
-Go ahead. I'll wait.</p>
-<p>Were you surprised by the output?</p>
-<h2 id="queues">Queues</h2>
-<p>Queues are FIFO (first in, first out) data structures.
-They're structured similarly to checkout lines at the grocery store;
-Whoever gets in line first gets serviced first.</p>
-<p>Here's a small demo of how queues work:</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
-#include &lt;queue&gt;
-
-using namespace std;
-
-int main() {
-  queue&lt;int&gt; q;
-  for(unsigned i = 0; i &lt; 6; ++i) {
-    cout &lt;&lt; &quot;Pushing i (&quot; &lt;&lt; i &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-    q.push(i);
-  }
-
-  while (!q.empty()) {
-    cout &lt;&lt; &quot;Popping (&quot; &lt;&lt; q.front() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-    q.pop();
-  }
-
-  if (q.empty()) cout &lt;&lt; &quot;queue is empty&quot; &lt;&lt; endl;
-
-  return 0;
-}
+<p>After this point, there now exists a new type - a struct - called <code>StructName</code>, and it can be used like so:</p>
+<pre><code class="c++">StructName myStruct;
+myStruct.field1;     // expression of type Type1
+myStruct.field2;     // expression of type Type2
 </code></pre>
 
-<p>Run it!!</p>
-<h2 id="exercise-1">Exercise 1</h2>
-<p>Implement your own <code>stack</code> and <code>queue</code>!</p>
-<p>The <code>stack</code> should have the following public members:</p>
-<pre><code class="cpp">template &lt;typename T&gt;
-class myStack {
-  public:
-    void push(T);       // adds an element to the top of the stack
-    T top() const;      // gets the element at the top of the stack
-    bool pop();         // returns false if failed
-    bool empty() const; // returned true if empty
-};
+<p>Structs define different fields.
+Each field gets its own type.
+When using the struct, each field is available through the dot operator.</p>
+<p>Now, you can use your new type like you would any other type.</p>
+<pre><code class="c++">/* in containers */
+vector&lt;StructName&gt; v(20);        // a vector of StructName with a size of 20
+
+/* functions */
+void f1(StructName arg1);        // accepts StructName by value
+void f1(StructName&amp; arg1);       // accepts StructName by reference
+void f1(const StructName&amp; arg1); // accepts StructName by const reference
+
+StructName f2();                 // returns StructName
 </code></pre>
-
-<p>The <code>queue</code> should have the following public members:</p>
-<pre><code class="cpp">template &lt;typename T&gt;
-class myQueue {
-  public:
-    void push(T);       // adds an element to the back of the queue
-    T front() const;    // gets the element at the front of the queue
-    bool pop();         // returns false if failed
-    bool empty() const; // returned true if empty
-};
-</code></pre>
-
-<p><strong>Important</strong>: Use a <code>deque</code>, <code>list</code>, or <code>vector</code> to do all of the heavy lifting for you.
-In other words, if you're using arrays and nodes to solve this, you're doing too much work.</p>
-<h2 id="exercise-2">Exercise 2</h2>
-<p>You're all probably able to recite the recursive factorial function in your sleep:</p>
-<pre><code class="cpp">unsigned long fact(unsigned long n) {
-  if (n &lt; 2) return 1;
-  return n * fact(n - 1);
-}
-</code></pre>
-
-<p>Write a non-recursive factorial function that takes advantage of <code>stack</code> similarly to how recursion works.</p>
-<h2 id="stretch-goal-exercise-1">Stretch-goal Exercise 1</h2>
-<p>Make a <code>queue</code> using two stacks!</p>
-<h2 id="stretch-goal-exercise-2">Stretch-goal Exercise 2</h2>
-<p>Make a new class <code>minStack</code> that has the same efficiency as a <code>stack</code> for <code>push</code> and <code>pop</code>, as well as constant lookup for the minimum element in the stack.</p>
-<p>In other words, I should be able to do this all in constant time:</p>
-<pre><code class="cpp">int main() {
-  minStack&lt;int&gt; ms;
-  ms.push(3);
-  cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(pushed &quot; &lt;&lt; ms.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-  ms.push(1);
-  cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(pushed &quot; &lt;&lt; ms.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-  ms.push(4);
-  cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(pushed &quot; &lt;&lt; ms.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-  ms.push(1);
-  cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(pushed &quot; &lt;&lt; ms.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-  ms.push(5);
-  cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(pushed &quot; &lt;&lt; ms.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-  ms.push(9);
-  cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(pushed &quot; &lt;&lt; ms.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-  ms.push(2);
-  cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(pushed &quot; &lt;&lt; ms.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-  ms.push(6);
-  cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(pushed &quot; &lt;&lt; ms.top() &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-
-  while (!ms.empty()) {
-    int temp = ms.top();
-    ms.pop();
-    cout &lt;&lt; &quot;min: &quot; &lt;&lt; ms.min() &lt;&lt; &quot;(popped &quot; &lt;&lt; temp &lt;&lt; &quot;)&quot; &lt;&lt; endl;
-  }
-
-  return 0;
-}
-</code></pre>
-
-<p>Prototype:</p>
-<pre><code class="cpp">template &lt;typename T&gt;
-class minStack() {
-  public:
-    void push(T);       // adds an element to the top of the stack
-    T top() const;      // gets the element at the top of the stack
-    T min() const;      // gets minimum element
-    bool pop();         // returns false if failed
-    bool empty() const; // returned true if empty
-}
-</code></pre>
-
-<p>(Hint: you can use whatever internal data type you'd like)</p>
-<p>(<strong>Hint:</strong> use two stacks)</p>
               
             </div>
           </div>
