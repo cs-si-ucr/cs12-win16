@@ -324,5 +324,44 @@ The ``#define`` defines the term ``FOO_H`` so the code can only ever be included
 It's not a rule, but good practice is to name the defined term similarly to your header file.
 Also, capitalizing every letter shows that it's a defined term.
 
+Makefiles
+---------
 
+```Makefile
+all: main.o foo.o
+	g++ main.o foo.o -W -Wall -Werror
+
+main.o: main.cpp foo.h
+	g++ -c main.cpp -W -Wall -Werror
+
+foo.o: foo.cpp foo.h
+	g++ -c foo.cpp -W -Wall -Werror
+```
+
+This is the form that a ``Makefile`` follows.
+The term before the colon is a *target*.
+To the right of the colon on the same line are *prerequisites*.
+Generally, filenames go here.
+If the file doesn't exist, ``make`` will try to create it using its target list.
+For instance, because ``main.o`` doesn't exist the first time ``make`` is called, the ``main.o`` target is then run.
+If the prerequisites don't exist, and can't be created using one of the targets, ``make`` will fail with an error.
+If you run ``make`` without specifying a target, the first target in the file will be used by default.
+
+Another cool thing ``make`` will do is execute certain targets based on wheter or not files have changed.
+If you run make twice in a row without changing anything else, nothing will be done the second time because no files have changed and nothing more can be done.
+If you change ``foo.cpp``, the ``foo.o`` and ``all`` targets will be rerun.
+
+
+Exercise 1
+----------
+
+
+
+
+Exercise 2
+----------
+
+
+Exercise 3
+----------
 
