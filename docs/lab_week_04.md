@@ -9,7 +9,7 @@ class Foo {
     public:
         Foo() {
             this->a = 0;
-            this->b = 0;
+            b = 0; // no confusion
         }
         Foo(int a, int b) {
             // now, which "a" does "a" refer to?
@@ -356,12 +356,13 @@ Exercise 1
 ----------
 
 
-
-
 Exercise 2
 ----------
 
 
 Exercise 3
 ----------
+
+
+
 
