@@ -81,6 +81,8 @@
                 
                     <li><a class="toctree-l4" href="#separate-files">Separate Files</a></li>
                 
+                    <li><a class="toctree-l4" href="#inclusion-guards">Inclusion Guards</a></li>
+                
             
             </ul>
         
@@ -364,6 +366,37 @@ organize your files in such a way that you don't need to compile everything ever
 <p>NOTE: This doesn't mean you don't have to compile anything.
 You still need to compile everything you <em>change</em>.
 If you change how <code>Foo</code> works, or add a function, you need to recompile and relink everything you change.</p>
+<h2 id="inclusion-guards">Inclusion Guards</h2>
+<p>Separate compilation is great, but there's one problem:
+what do I do if my header gets included in multiple places?
+We can use preprocessor directives to make sure it only ever gets included once.</p>
+<pre><code class="c++">/* foo.h */
+
+#ifndef FOO_H
+#define FOO_H
+
+#include &lt;iostream&gt;
+
+class Foo { // class declaration
+    public:
+        Foo();        // default constructor
+        void hello(); // some function
+        // stuff
+        // ...
+    private:
+        // stuff
+        // ...
+};
+
+#endif
+</code></pre>
+
+<p><code>#ifndef</code> asks the preprocessor if the term <code>FOO_H</code> is defined.
+If it isn't, everything until the <code>#endif</code> is left in its place.
+Otherwise, if the term <code>FOO_H</code> has already been defined, everything until the <code>#endif</code> is removed (not permanently, of course, just for the purposes of compilation).
+The <code>#define</code> defines the term <code>FOO_H</code> so the code can only ever be included for compilation once.</p>
+<p>It's not a rule, but good practice is to name the defined term similarly to your header file.
+Also, capitalizing every letter shows that it's a defined term.</p>
               
             </div>
           </div>
