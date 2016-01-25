@@ -83,6 +83,14 @@
                 
                     <li><a class="toctree-l4" href="#inclusion-guards">Inclusion Guards</a></li>
                 
+                    <li><a class="toctree-l4" href="#makefiles">Makefiles</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-1">Exercise 1</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-2">Exercise 2</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-3">Exercise 3</a></li>
+                
             
             </ul>
         
@@ -397,6 +405,31 @@ Otherwise, if the term <code>FOO_H</code> has already been defined, everything u
 The <code>#define</code> defines the term <code>FOO_H</code> so the code can only ever be included for compilation once.</p>
 <p>It's not a rule, but good practice is to name the defined term similarly to your header file.
 Also, capitalizing every letter shows that it's a defined term.</p>
+<h2 id="makefiles">Makefiles</h2>
+<pre><code class="Makefile">all: main.o foo.o
+    g++ main.o foo.o -W -Wall -Werror
+
+main.o: main.cpp foo.h
+    g++ -c main.cpp -W -Wall -Werror
+
+foo.o: foo.cpp foo.h
+    g++ -c foo.cpp -W -Wall -Werror
+</code></pre>
+
+<p>This is the form that a <code>Makefile</code> follows.
+The term before the colon is a <em>target</em>.
+To the right of the colon on the same line are <em>prerequisites</em>.
+Generally, filenames go here.
+If the file doesn't exist, <code>make</code> will try to create it using its target list.
+For instance, because <code>main.o</code> doesn't exist the first time <code>make</code> is called, the <code>main.o</code> target is then run.
+If the prerequisites don't exist, and can't be created using one of the targets, <code>make</code> will fail with an error.
+If you run <code>make</code> without specifying a target, the first target in the file will be used by default.</p>
+<p>Another cool thing <code>make</code> will do is execute certain targets based on wheter or not files have changed.
+If you run make twice in a row without changing anything else, nothing will be done the second time because no files have changed and nothing more can be done.
+If you change <code>foo.cpp</code>, the <code>foo.o</code> and <code>all</code> targets will be rerun.</p>
+<h2 id="exercise-1">Exercise 1</h2>
+<h2 id="exercise-2">Exercise 2</h2>
+<h2 id="exercise-3">Exercise 3</h2>
               
             </div>
           </div>
