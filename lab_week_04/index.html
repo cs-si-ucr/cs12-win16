@@ -135,7 +135,7 @@
     public:
         Foo() {
             this-&gt;a = 0;
-            this-&gt;b = 0;
+            b = 0; // no confusion
         }
         Foo(int a, int b) {
             // now, which &quot;a&quot; does &quot;a&quot; refer to?
