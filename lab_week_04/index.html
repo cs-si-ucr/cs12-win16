@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab Week 4 - CS 12 SI Labs: Winter 2015</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Lab Week 4";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CS 12 SI Labs: Winter 2015</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../lab_week_03/">Lab Week 3</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Lab Week 4</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#lab-4-classes-syntactical-sugar-compilation-and-makefiles">Lab 4: Classes, Syntactical Sugar, Compilation, and Makefiles</a></li>
+                
+                    <li><a class="toctree-l4" href="#this">This</a></li>
+                
+                    <li><a class="toctree-l4" href="#overloading">Overloading</a></li>
+                
+                    <li><a class="toctree-l4" href="#classes-within-classes">Classes Within Classes</a></li>
+                
+                    <li><a class="toctree-l4" href="#preprocessor-directives">Preprocessor Directives</a></li>
+                
+                    <li><a class="toctree-l4" href="#separate-files">Separate Files</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CS 12 SI Labs: Winter 2015</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Lab Week 4</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="lab-4-classes-syntactical-sugar-compilation-and-makefiles">Lab 4: Classes, Syntactical Sugar, Compilation, and Makefiles</h1>
+<h2 id="this">This</h2>
+<pre><code class="c++">class Foo {
+    public:
+        Foo() {
+            this-&gt;a = 0;
+            this-&gt;b = 0;
+        }
+        Foo(int a, int b) {
+            // now, which &quot;a&quot; does &quot;a&quot; refer to?
+            /* this doesn't work for obvious reasons:
+            a = a;
+            b = b;
+            */
+            // using &quot;this&quot; helps us clear the confusion up
+            this-&gt;a = a; // a is the parameter
+            this-&gt;b = b; // b is the parameter
+        }
+    private:
+        int a, b;
+};
+</code></pre>
+
+<p>The keyword <code>this</code> is used to access the implicit parameter's fields.
+To use access fields of the implicit parameter, use the arrow operator (<code>-&gt;</code>).</p>
+<h2 id="overloading">Overloading</h2>
+<p><a href="https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B" target="_blank">This</a> article contains a list of all C++ operators and whether or not they are able to be overloaded.
+Operators can be overloaded as part of a class, or outside of class definitions.
+When overloading as part of a class, the object referred to by <code>this</code> is assumed to be the first parameter of the operator being overloaded.
+Also, the overloaded operator can operate on and with private data and private member functions.</p>
+<p>Operators overloaded globally must specify all parameters to the operator in question.
+Because they are defined outside of the class, they cannot access private data or private member functions unless the operator is made to be a <code>friend</code>.</p>
+<h2 id="classes-within-classes">Classes Within Classes</h2>
+<p><a href="https://zybooks.zyante.com/#/zybook/UCRCS12Winter2016/chapter/9/section/17" target="_blank">Chapter 9 section 17 in your book</a> talks about using classes within classes.
+Nothing special is happening here;
+once a class is created, it can be used just about anywhere.</p>
+<pre><code class="c++">class A {
+    private:
+        int x, y;
+    public:
+        A(int x, int y) : x(x), y(y) {}
+        void setX(int x) { this-&gt;x = x; }
+        void setY(int y) { this-&gt;y = y; }
+        int  getX()      { return x; }
+        int  getY()      { return y; }
+};
+
+class B {  // contains instances of A
+    private:
+        A pv1, pv2;
+};
+</code></pre>
+
+<h2 id="preprocessor-directives">Preprocessor Directives</h2>
+<p>Preprocessor directives are very powerful tools that a programmer can use to make code more quickly.
+All preprocessor directives start with the <a href="http://www.merriam-webster.com/dictionary/octothorpe" target="_blank">octothorpe</a> (<code>#</code>).</p>
+<pre><code class="c++">#include &lt;filename.h&gt;
+#include &quot;filename.h&quot;
+</code></pre>
+
+<p>The <code>#include</code> directive finds a file specified, and places its contents where the <code>#include</code> statement was located.
+When the filename is surrounded with angle brackets (<code>&lt;&gt;</code>), the preprocessor will look in standard library locations for your file.
+When the filename is surrounded with quotation marks (<code>""</code>), the preprocessor will look for the file in the same directory as the file you're trying to compile.</p>
+<h2 id="separate-files">Separate Files</h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../lab_week_03/" class="btn btn-neutral" title="Lab Week 3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lab_week_03/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>

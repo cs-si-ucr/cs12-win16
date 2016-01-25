@@ -64,6 +64,41 @@
             "location": "/lab_week_03/#bonus", 
             "text": "If you want to learn a cool trick that will make coding easier in the future, look up  initialization lists", 
             "title": "Bonus"
+        }, 
+        {
+            "location": "/lab_week_04/", 
+            "text": "Lab 4: Classes, Syntactical Sugar, Compilation, and Makefiles\n\n\nThis\n\n\nclass Foo {\n    public:\n        Foo() {\n            this-\na = 0;\n            this-\nb = 0;\n        }\n        Foo(int a, int b) {\n            // now, which \na\n does \na\n refer to?\n            /* this doesn't work for obvious reasons:\n            a = a;\n            b = b;\n            */\n            // using \nthis\n helps us clear the confusion up\n            this-\na = a; // a is the parameter\n            this-\nb = b; // b is the parameter\n        }\n    private:\n        int a, b;\n};\n\n\n\n\nThe keyword \nthis\n is used to access the implicit parameter's fields.\nTo use access fields of the implicit parameter, use the arrow operator (\n-\n).\n\n\nOverloading\n\n\nThis\n article contains a list of all C++ operators and whether or not they are able to be overloaded.\nOperators can be overloaded as part of a class, or outside of class definitions.\nWhen overloading as part of a class, the object referred to by \nthis\n is assumed to be the first parameter of the operator being overloaded.\nAlso, the overloaded operator can operate on and with private data and private member functions.\n\n\nOperators overloaded globally must specify all parameters to the operator in question.\nBecause they are defined outside of the class, they cannot access private data or private member functions unless the operator is made to be a \nfriend\n.\n\n\nClasses Within Classes\n\n\nChapter 9 section 17 in your book\n talks about using classes within classes.\nNothing special is happening here;\nonce a class is created, it can be used just about anywhere.\n\n\nclass A {\n    private:\n        int x, y;\n    public:\n        A(int x, int y) : x(x), y(y) {}\n        void setX(int x) { this-\nx = x; }\n        void setY(int y) { this-\ny = y; }\n        int  getX()      { return x; }\n        int  getY()      { return y; }\n};\n\nclass B {  // contains instances of A\n    private:\n        A pv1, pv2;\n};\n\n\n\n\nPreprocessor Directives\n\n\nPreprocessor directives are very powerful tools that a programmer can use to make code more quickly.\nAll preprocessor directives start with the \noctothorpe\n (\n#\n).\n\n\n#include \nfilename.h\n\n#include \nfilename.h\n\n\n\n\n\nThe \n#include\n directive finds a file specified, and places its contents where the \n#include\n statement was located.\nWhen the filename is surrounded with angle brackets (\n), the preprocessor will look in standard library locations for your file.\nWhen the filename is surrounded with quotation marks (\n\"\"\n), the preprocessor will look for the file in the same directory as the file you're trying to compile.\n\n\nSeparate Files", 
+            "title": "Lab Week 4"
+        }, 
+        {
+            "location": "/lab_week_04/#lab-4-classes-syntactical-sugar-compilation-and-makefiles", 
+            "text": "", 
+            "title": "Lab 4: Classes, Syntactical Sugar, Compilation, and Makefiles"
+        }, 
+        {
+            "location": "/lab_week_04/#this", 
+            "text": "class Foo {\n    public:\n        Foo() {\n            this- a = 0;\n            this- b = 0;\n        }\n        Foo(int a, int b) {\n            // now, which  a  does  a  refer to?\n            /* this doesn't work for obvious reasons:\n            a = a;\n            b = b;\n            */\n            // using  this  helps us clear the confusion up\n            this- a = a; // a is the parameter\n            this- b = b; // b is the parameter\n        }\n    private:\n        int a, b;\n};  The keyword  this  is used to access the implicit parameter's fields.\nTo use access fields of the implicit parameter, use the arrow operator ( - ).", 
+            "title": "This"
+        }, 
+        {
+            "location": "/lab_week_04/#overloading", 
+            "text": "This  article contains a list of all C++ operators and whether or not they are able to be overloaded.\nOperators can be overloaded as part of a class, or outside of class definitions.\nWhen overloading as part of a class, the object referred to by  this  is assumed to be the first parameter of the operator being overloaded.\nAlso, the overloaded operator can operate on and with private data and private member functions.  Operators overloaded globally must specify all parameters to the operator in question.\nBecause they are defined outside of the class, they cannot access private data or private member functions unless the operator is made to be a  friend .", 
+            "title": "Overloading"
+        }, 
+        {
+            "location": "/lab_week_04/#classes-within-classes", 
+            "text": "Chapter 9 section 17 in your book  talks about using classes within classes.\nNothing special is happening here;\nonce a class is created, it can be used just about anywhere.  class A {\n    private:\n        int x, y;\n    public:\n        A(int x, int y) : x(x), y(y) {}\n        void setX(int x) { this- x = x; }\n        void setY(int y) { this- y = y; }\n        int  getX()      { return x; }\n        int  getY()      { return y; }\n};\n\nclass B {  // contains instances of A\n    private:\n        A pv1, pv2;\n};", 
+            "title": "Classes Within Classes"
+        }, 
+        {
+            "location": "/lab_week_04/#preprocessor-directives", 
+            "text": "Preprocessor directives are very powerful tools that a programmer can use to make code more quickly.\nAll preprocessor directives start with the  octothorpe  ( # ).  #include  filename.h \n#include  filename.h   The  #include  directive finds a file specified, and places its contents where the  #include  statement was located.\nWhen the filename is surrounded with angle brackets ( ), the preprocessor will look in standard library locations for your file.\nWhen the filename is surrounded with quotation marks ( \"\" ), the preprocessor will look for the file in the same directory as the file you're trying to compile.", 
+            "title": "Preprocessor Directives"
+        }, 
+        {
+            "location": "/lab_week_04/#separate-files", 
+            "text": "", 
+            "title": "Separate Files"
         }
     ]
 }
