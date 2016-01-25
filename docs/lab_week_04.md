@@ -287,6 +287,42 @@ NOTE: This doesn't mean you don't have to compile anything.
 You still need to compile everything you *change*.
 If you change how ``Foo`` works, or add a function, you need to recompile and relink everything you change.
 
+Inclusion Guards
+----------------
+Separate compilation is great, but there's one problem:
+what do I do if my header gets included in multiple places?
+We can use preprocessor directives to make sure it only ever gets included once.
+
+
+```c++
+/* foo.h */
+
+#ifndef FOO_H
+#define FOO_H
+
+#include <iostream>
+
+class Foo { // class declaration
+    public:
+        Foo();        // default constructor
+        void hello(); // some function
+        // stuff
+        // ...
+    private:
+        // stuff
+        // ...
+};
+
+#endif
+```
+
+``#ifndef`` asks the preprocessor if the term ``FOO_H`` is defined.
+If it isn't, everything until the ``#endif`` is left in its place.
+Otherwise, if the term ``FOO_H`` has already been defined, everything until the ``#endif`` is removed (not permanently, of course, just for the purposes of compilation).
+The ``#define`` defines the term ``FOO_H`` so the code can only ever be included for compilation once.
+
+It's not a rule, but good practice is to name the defined term similarly to your header file.
+Also, capitalizing every letter shows that it's a defined term.
 
 
 
