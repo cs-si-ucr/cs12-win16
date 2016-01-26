@@ -397,6 +397,10 @@ ostream& operator<<(ostream& out, Wallet);
 ```
 
 Create the class specified above.
+Make sure to write a ``Makefile``, and to compile the class separately from the main.
+Right now you're probably thinking, "why do I even need a main?"
+Well, you need to write your tests there!
+Don't let any of your code go untested.
 
 
 
