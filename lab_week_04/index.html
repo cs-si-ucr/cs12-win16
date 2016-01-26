@@ -87,10 +87,6 @@
                 
                     <li><a class="toctree-l4" href="#exercise-1">Exercise 1</a></li>
                 
-                    <li><a class="toctree-l4" href="#exercise-2">Exercise 2</a></li>
-                
-                    <li><a class="toctree-l4" href="#exercise-3">Exercise 3</a></li>
-                
             
             </ul>
         
@@ -428,8 +424,47 @@ If you run <code>make</code> without specifying a target, the first target in th
 If you run make twice in a row without changing anything else, nothing will be done the second time because no files have changed and nothing more can be done.
 If you change <code>foo.cpp</code>, the <code>foo.o</code> and <code>all</code> targets will be rerun.</p>
 <h2 id="exercise-1">Exercise 1</h2>
-<h2 id="exercise-2">Exercise 2</h2>
-<h2 id="exercise-3">Exercise 3</h2>
+<pre><code class="c++">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define debug(A) std::cout &lt;&lt; #A &lt;&lt; &quot;: '&quot; &lt;&lt; A &lt;&lt; '\'' &lt;&lt; std::endl
+
+struct Change {
+    unsigned int pennies,
+                 nickels,
+                 dimes,
+                 quarters,
+                 dollars,
+                 fives,
+                 tens,
+                 twenties,
+                 fifties,
+                 hundreds;
+};
+
+class Wallet {
+    private:
+        // You do it!
+    public:
+        // do what makes cents ;)
+        Wallet();
+        Wallet(int cents);
+        Wallet(int dollars, int cents);
+
+        Wallet operator+(Wallet); // add wallet
+        Wallet operator+(int);    // add cents
+        Wallet operator-(Wallet); // subtract wallet
+        Wallet operator-(int);    // subtract cents
+
+        Change getMoney();
+        friend ostream&amp; operator&lt;&lt;(ostream&amp; out, Wallet);
+};
+
+ostream&amp; operator&lt;&lt;(ostream&amp; out, Wallet);
+</code></pre>
+
+<p>Create the class specified above.</p>
               
             </div>
           </div>
