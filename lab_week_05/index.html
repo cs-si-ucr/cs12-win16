@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab Week 5 - CS 12 SI Labs: Winter 2015</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Lab Week 5";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CS 12 SI Labs: Winter 2015</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../lab_week_03/">Lab Week 3</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../lab_week_04/">Lab Week 4</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Lab Week 5</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#lab-week-5-sets-and-maps">Lab Week 5: Sets and Maps</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-1">Exercise 1</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-2">Exercise 2</a></li>
+                
+                    <li><a class="toctree-l4" href="#stretch-goal-exercise-1">Stretch-Goal Exercise 1</a></li>
+                
+                    <li><a class="toctree-l4" href="#extra-bits-stretch-goal-exercise-1">Extra Bits: Stretch-Goal Exercise 1</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CS 12 SI Labs: Winter 2015</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Lab Week 5</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="lab-week-5-sets-and-maps">Lab Week 5: Sets and Maps</h1>
+<h2 id="exercise-1">Exercise 1</h2>
+<p>Write a function called <code>freq_map</code> which takes in a vector
+of strings and returns a stringfrequency map, a map which
+maps strings to the number of times it appears in the
+vector.</p>
+<p>Use the following function prototype:</p>
+<pre><code class="cpp">std::map&lt;std::string, unsigned int&gt; freq_map(std::vector&lt;std::string&gt; words) 
+</code></pre>
+
+<p>Use the following text file to test your function, read the words
+from the file and put them into a super big vector!
+<a href="http://termbin.com/1x6w">http://termbin.com/1x6w</a></p>
+<h2 id="exercise-2">Exercise 2</h2>
+<p>Write a function that returns a vector of the top <code>n</code> most frequent strings in the frequency map.</p>
+<p>Use the following header!</p>
+<pre><code class="cpp">std::vector&lt;std::string&gt; 
+top_n(std::map&lt;std::string, unsigned int&gt; freq_map, unsigned int n = 5)
+</code></pre>
+
+<h2 id="stretch-goal-exercise-1">Stretch-Goal Exercise 1</h2>
+<p>Write a class called <code>AnagramChecker</code> which 
+keeps track of strings and is able to tell
+if any other string is an anagram in in its
+data structure.</p>
+<p>Usage example:</p>
+<pre><code class="cpp">#include &quot;anagramchecker.h&quot;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+void printIfAnagram(const AnagramChecker &amp; a, string s) {
+    if(a.check(s)) {
+        cout &lt;&lt; s &lt;&lt; &quot; is an anagram of one of the words in the checker&quot; &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; s &lt;&lt; &quot; is not an anagram of one of the words in the checker&quot; &lt;&lt; endl;
+    }
+}
+
+int main() {
+    AnagramChecker a;
+    a.add(&quot;hello&quot;);
+    a.add(&quot;bye&quot;);
+
+    printIfAnagram(a, &quot;apple&quot;);
+    printIfAnagram(a, &quot;olleh&quot;);
+}
+</code></pre>
+
+<p>The above program should print out </p>
+<pre><code class="text">apple is not an anagram of one of the words in the checker
+olleh is an anagram of one of the words in the checker
+
+</code></pre>
+
+<p>Requirements, the data structure must meet the following
+space and time complexity requirements:</p>
+<p>Where <code>n</code> is the number of strings stored by the data structure.</p>
+<pre><code class="text">Data Structure: O(n) space
+
+Operations:
+    add(string)
+        Time: O(log n)
+
+    check(string)
+        Time: O(log n)
+</code></pre>
+
+<h2 id="extra-bits-stretch-goal-exercise-1">Extra Bits: Stretch-Goal Exercise 1</h2>
+<p>Improve SG Exercise 1 so that the data structure guarantees
+the following time complexities: </p>
+<pre><code class="text">Data Structure: O(n) space
+
+Operations:
+    add(string)
+        Time: O(1) amortized
+
+    check(string)
+        Time: O(1) amortized
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../lab_week_04/" class="btn btn-neutral" title="Lab Week 4"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lab_week_04/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>
