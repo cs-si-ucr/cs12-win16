@@ -1,184 +1,133 @@
-Lab Week 8: QuickSort
-=========================
+Lab Week 8: Recursion
+=====================
 
-Today you will be implementing Quicksort.
-For a mediocre visualization on how Quicksort works, go <u><a href="http://algoviz.org/OpenDSA/AV/Sorting/quicksortAV.html" target="_blank">here</a></u>.
+Read your book to learn about recursion.
 
-The general algorithm for quicksort:
-```python
-def Quicksort(L):
-    # lists of size 1 or less
-    # are sorted by definition
-    if (len(L) <= 1):
-        return
-
-    # select pivot index using
-    # the list of elements
-    pivot = selectPivot(L)
-
-    # partition into two halves
-    # using the pivot value
-    partIdx = partition(L, pivot)
-
-    # recursively sort the left
-    # and right sublists
-    Quicksort(L[:partIdx])
-    Quicksort(L[partIdx:])
-```
-
-Declarations for lab today:
-
-
-```c++
-#include <utility>
-#include <algorithm>
-#include <vector>
-#include <functional>
-#include <iostream>
-#include <iterator>
-
-/*
- * takes three values and uses comp to put them in sorted order.
- * the median ends up at b.
- */
-template<typename T, typename Compare = std::less<T>>
-void median_of_three(T & a, T & b, T & c, Compare comp = Compare());
-
-/*
- * partitions v from first to last using mid as the pivot
- */
-template<typename T, typename Compare = std::less<T>>
-int partition(std::vector<T> & v, int first, int mid, int last, Compare comp = Compare());
-
-/*
- * same as other partition;
- * creates two vectors for the left and right, then puts all the elements (except for mid)
- * in the two. Then, they are put back in v so that v is partitioned, and returns the
- * index of the pivot value.
- */
-template<typename T, typename Compare = std::less<T>>
-int naive_partition(std::vector<T> & v, int first, int mid, int last, Compare comp = Compare());
-
-/*
- * uses the median of three pivot selection method, and the naive partition method
- * to implement quicksort
- *
- * has a base case of a list of size 1 or fewer
- */
-template<typename T, typename Compare = std::less<T>>
-void naive_quicksort(std::vector<T> & v, int first, int last, Compare comp = Compare());
-
-/*
- * overload
- */
-template<typename T>
-void naive_quicksort(std::vector<T> & v) {
-    naive_quicksort(v, 0, v.size());
-}
-
-/*
- * uses the median of three pivot selection method, and the faster partition method
- *
- * has a base case of a list of size 1 or fewer
- */
-template<typename T, typename Compare = std::less<T>>
-void quicksort(std::vector<T> & v, int first, int last, Compare comp = Compare());
-
-/*
- * overload
- */
-template<typename T>
-void quicksort(std::vector<T> & v) {
-    quicksort(v, 0, v.size());
-}
-
-/*
- * InsertionSort
- */
-template<typename T, typename Compare = std::less<T>>
-void insertionsort(std::vector<T> & v, int first, int last, Compare comp = Compare()) {
-    for(int sorted = first + 1; sorted < last; ++sorted) {
-        for(int i = sorted; i > first && comp(v.at(i), v.at(i-1)); --i) {
-            std::swap(v.at(i), v.at(i-1));
-        }
-    }
-}
-
-/*
- * overload
- */
-template<typename T>
-void insertionsort(std::vector<T> & v) {
-    insertionsort(v, 0, v.size());
-}
-
-/*
- * uses the median of three pivot selection method and the faster partition method
- *
- * insertion sort is called for reasonably small lists
- */
-template<typename T, typename Compare = std::less<T>>
-void faster_quicksort(std::vector<T> & v, int first, int last, Compare comp = Compare());
-
-/*
- * overload
- */
-template<typename T>
-void faster_quicksort(std::vector<T> & v) {
-    faster_quicksort(v, 0, v.size());
-}
-
-```
-
-<u><a href="https://gist.github.com/CrazyWearsPJs/3138795e59a3189df5e7" target="_blank">An example test harness.</a></u>
 
 Exercise 1
 ----------
-Create the median_of_three function for selecting the pivot value.
-Discuss with the people around you which three values you should pass into this function to find the best pivot value.
+Write a function to return the nth fibonacci number recursively.
 
-Don't forget to test it!
+```c++
+/// Our fibonacci sequence is zero-indexed
+// 0 is first fibonacci number (argument is 0)
+// 1 is second fibonacci number (argument is 1)
+// 1 is third fibonacci number (argument is 2)
+// 2 is fourth fibonacci number (argument is 8)
+// 3 is fifth fibonacci number (argument is 4)
+// 5 is sixth fibonacci number (argument is 5)
+// 8 is seventh fibonacci number (argument is 6)
+// and so on...
+
+// returns the nth fibonacci number
+int fib(unsigned int);
+```
+
 
 Exercise 2
 ----------
-Create the naive_partition method.
-Test it.
+Write a function to print to collatz conjecture sequence recursively.
+
+Remember that the collatz conjecture is defined in this way:
+
+Take any number.
+If it's even, divide it by two.
+If it's odd, multiply it by 3, then add 1.
+Eventually, you will end up with the value of 1.
+
+There is no known number that will not eventually end up at 1.
+
+```c++
+// prints the collatz sequence defined by the argument
+void collatz(unsigned int);
+```
+
 
 Exercise 3
 ----------
-Create naive_quicksort
+Write a multiplication function recursively.
 
-Test it!
+```c++
+// returns the product of the two arguments
+double mul(double, double);
+```
+
 
 Exercise 4
 ----------
-Create partition
+Write ``pow`` recursively.
 
-Test it!1!!
+``pow`` exponentiates a given value.
+Google ``cmath pow`` for more information.
+
+```c++
+// returns the exponentiation of the first argument to the second argument
+double pow(double base, unsigned int exponent);
+```
+
 
 Exercise 5
 ----------
-Create quicksort
+Write a function to print a cstring.
 
-Test it!
+```c++
+// prints a cstring
+void printForward(const char*);
+```
+
 
 Exercise 6
 ----------
-Create faster_quicksort
+Write a function to print a cstring backwards.
 
-You are now able to run the example test harness. Do it. It is amazing.
+```c++
+// prints a cstring backwards
+void printBackward(const char*);
+```
 
-Stretch Exercise 1
-------------------
-tba
 
-Stretch Exercise 2
-------------------
-tba
+Exercise 7
+----------
+Write ``strlen`` recursively.
 
-Stretch Exercise 3
-------------------
-tba
+```c++
+// returns the length of the argument
+unsigned int myStrlen(const char*);
+```
+
+Exercise 8
+----------
+Write ``strcpy`` recursively.
+
+```c++
+// copies the second cstring to the first cstring
+void myStrcpy(char*, const char*);
+```
+
+
+Exercise 9
+----------
+Write ``strcmp`` recursively.
+
+```c++
+// compares the first string to the second, lexicographically
+// -1: argument1 < argument2
+//  0: argument1 = argument2
+//  1: argument1 > argument2
+int myStrcmp(const char*, const char*);
+```
+
+
+Exercise 10
+----------
+Write ``min`` recursively.
+
+```c++
+// returns the index of the smallest element in an array of integers
+// first parameter is the array
+// second parameter is the size of the array
+unsigned int min(int*, unsigned int);
+```
 
 
 
