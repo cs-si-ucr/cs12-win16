@@ -49,7 +49,7 @@ Write a multiplication function recursively.
 
 ```c++
 // returns the product of the two arguments
-double mul(double, double);
+int mul(int, int);
 ```
 
 
