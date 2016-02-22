@@ -13,7 +13,7 @@ Write a function to return the nth fibonacci number recursively.
 // 0 is first fibonacci number (argument is 0)
 // 1 is second fibonacci number (argument is 1)
 // 1 is third fibonacci number (argument is 2)
-// 2 is fourth fibonacci number (argument is 8)
+// 2 is fourth fibonacci number (argument is 3)
 // 3 is fifth fibonacci number (argument is 4)
 // 5 is sixth fibonacci number (argument is 5)
 // 8 is seventh fibonacci number (argument is 6)
@@ -107,6 +107,18 @@ void myStrcpy(char*, const char*);
 
 Exercise 9
 ----------
+Write ``min`` recursively.
+
+```c++
+// returns the index of the smallest element in an array of integers
+// first parameter is the array
+// second parameter is the size of the array
+unsigned int min(int*, unsigned int);
+```
+
+
+Exercise 10
+----------
 Write ``strcmp`` recursively.
 
 ```c++
@@ -115,18 +127,6 @@ Write ``strcmp`` recursively.
 //  0: argument1 = argument2
 //  1: argument1 > argument2
 int myStrcmp(const char*, const char*);
-```
-
-
-Exercise 10
-----------
-Write ``min`` recursively.
-
-```c++
-// returns the index of the smallest element in an array of integers
-// first parameter is the array
-// second parameter is the size of the array
-unsigned int min(int*, unsigned int);
 ```
 
 
