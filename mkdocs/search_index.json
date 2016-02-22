@@ -116,34 +116,74 @@
             "title": "Exercise 1"
         }, 
         {
-            "location": "/lab_week_05/", 
-            "text": "Lab Week 5: Sets and Maps\n\n\nExercise 1\n\n\nWrite a function called \nfreq_map\n which takes in a vector\nof strings and returns a stringfrequency map, a map which\nmaps strings to the number of times it appears in the\nvector.\n\n\nUse the following function prototype:\n\n\nstd::map\nstd::string, unsigned int\n freq_map(std::vector\nstd::string\n words) \n\n\n\n\nUse the following text file to test your function, read the words\nfrom the file and put them into a super big vector!\n\nhttp://termbin.com/1x6w\n\n\nExercise 2\n\n\nWrite a function that returns a vector of the top \nn\n most frequent strings in the frequency map.\n\n\nUse the following header!\n\n\nstd::vector\nstd::string\n \ntop_n(std::map\nstd::string, unsigned int\n freq_map, unsigned int n = 5)\n\n\n\n\nStretch-Goal Exercise 1\n\n\nWrite a class called \nAnagramChecker\n which \nkeeps track of strings and is able to tell\nif any other string is an anagram in in its\ndata structure.\n\n\nUsage example:\n\n\n#include \nanagramchecker.h\n\n#include \niostream\n\n#include \nstring\n\nusing namespace std;\n\nvoid printIfAnagram(const AnagramChecker \n a, string s) {\n    if(a.check(s)) {\n        cout \n s \n \n is an anagram of one of the words in the checker\n \n endl;\n    } else {\n        cout \n s \n \n is not an anagram of one of the words in the checker\n \n endl;\n    }\n}\n\nint main() {\n    AnagramChecker a;\n    a.add(\nhello\n);\n    a.add(\nbye\n);\n\n    printIfAnagram(a, \napple\n);\n    printIfAnagram(a, \nolleh\n);\n}\n\n\n\n\nThe above program should print out \n\n\napple is not an anagram of one of the words in the checker\nolleh is an anagram of one of the words in the checker\n\n\n\n\n\nRequirements, the data structure must meet the following\nspace and time complexity requirements:\n\n\nWhere \nn\n is the number of strings stored by the data structure.\n\n\nData Structure: O(n) space\n\nOperations:\n    add(string)\n        Time: O(log n)\n\n    check(string)\n        Time: O(log n)\n\n\n\n\nExtra Bits: Stretch-Goal Exercise 1\n\n\nImprove SG Exercise 1 so that the data structure guarantees\nthe following time complexities: \n\n\nData Structure: O(n) space\n\nOperations:\n    add(string)\n        Time: O(1) amortized\n\n    check(string)\n        Time: O(1) amortized", 
-            "title": "Lab Week 5"
+            "location": "/lab_week_08/", 
+            "text": "Lab Week 8: Recursion\n\n\nRead your book to learn about recursion.\n\n\nExercise 1\n\n\nWrite a function to return the nth fibonacci number recursively.\n\n\n/// Our fibonacci sequence is zero-indexed\n// 0 is first fibonacci number (argument is 0)\n// 1 is second fibonacci number (argument is 1)\n// 1 is third fibonacci number (argument is 2)\n// 2 is fourth fibonacci number (argument is 8)\n// 3 is fifth fibonacci number (argument is 4)\n// 5 is sixth fibonacci number (argument is 5)\n// 8 is seventh fibonacci number (argument is 6)\n// and so on...\n\n// returns the nth fibonacci number\nint fib(unsigned int);\n\n\n\n\nExercise 2\n\n\nWrite a function to print to collatz conjecture sequence recursively.\n\n\nRemember that the collatz conjecture is defined in this way:\n\n\nTake any number.\nIf it's even, divide it by two.\nIf it's odd, multiply it by 3, then add 1.\nEventually, you will end up with the value of 1.\n\n\nThere is no known number that will not eventually end up at 1.\n\n\n// prints the collatz sequence defined by the argument\nvoid collatz(unsigned int);\n\n\n\n\nExercise 3\n\n\nWrite a multiplication function recursively.\n\n\n// returns the product of the two arguments\ndouble mul(double, double);\n\n\n\n\nExercise 4\n\n\nWrite \npow\n recursively.\n\n\npow\n exponentiates a given value.\nGoogle \ncmath pow\n for more information.\n\n\n// returns the exponentiation of the first argument to the second argument\ndouble pow(double base, unsigned int exponent);\n\n\n\n\nExercise 5\n\n\nWrite a function to print a cstring.\n\n\n// prints a cstring\nvoid printForward(const char*);\n\n\n\n\nExercise 6\n\n\nWrite a function to print a cstring backwards.\n\n\n// prints a cstring backwards\nvoid printBackward(const char*);\n\n\n\n\nExercise 7\n\n\nWrite \nstrlen\n recursively.\n\n\n// returns the length of the argument\nunsigned int myStrlen(const char*);\n\n\n\n\nExercise 8\n\n\nWrite \nstrcpy\n recursively.\n\n\n// copies the second cstring to the first cstring\nvoid myStrcpy(char*, const char*);\n\n\n\n\nExercise 9\n\n\nWrite \nstrcmp\n recursively.\n\n\n// compares the first string to the second, lexicographically\n// -1: argument1 \n argument2\n//  0: argument1 = argument2\n//  1: argument1 \n argument2\nint myStrcmp(const char*, const char*);\n\n\n\n\nExercise 10\n\n\nWrite \nmin\n recursively.\n\n\n// returns the index of the smallest element in an array of integers\n// first parameter is the array\n// second parameter is the size of the array\nunsigned int min(int*, unsigned int);", 
+            "title": "Lab Week 8"
         }, 
         {
-            "location": "/lab_week_05/#lab-week-5-sets-and-maps", 
-            "text": "", 
-            "title": "Lab Week 5: Sets and Maps"
+            "location": "/lab_week_08/#lab-week-8-recursion", 
+            "text": "Read your book to learn about recursion.", 
+            "title": "Lab Week 8: Recursion"
         }, 
         {
-            "location": "/lab_week_05/#exercise-1", 
-            "text": "Write a function called  freq_map  which takes in a vector\nof strings and returns a stringfrequency map, a map which\nmaps strings to the number of times it appears in the\nvector.  Use the following function prototype:  std::map std::string, unsigned int  freq_map(std::vector std::string  words)   Use the following text file to test your function, read the words\nfrom the file and put them into a super big vector! http://termbin.com/1x6w", 
+            "location": "/lab_week_08/#exercise-1", 
+            "text": "Write a function to return the nth fibonacci number recursively.  /// Our fibonacci sequence is zero-indexed\n// 0 is first fibonacci number (argument is 0)\n// 1 is second fibonacci number (argument is 1)\n// 1 is third fibonacci number (argument is 2)\n// 2 is fourth fibonacci number (argument is 8)\n// 3 is fifth fibonacci number (argument is 4)\n// 5 is sixth fibonacci number (argument is 5)\n// 8 is seventh fibonacci number (argument is 6)\n// and so on...\n\n// returns the nth fibonacci number\nint fib(unsigned int);", 
             "title": "Exercise 1"
         }, 
         {
-            "location": "/lab_week_05/#exercise-2", 
-            "text": "Write a function that returns a vector of the top  n  most frequent strings in the frequency map.  Use the following header!  std::vector std::string  \ntop_n(std::map std::string, unsigned int  freq_map, unsigned int n = 5)", 
+            "location": "/lab_week_08/#exercise-2", 
+            "text": "Write a function to print to collatz conjecture sequence recursively.  Remember that the collatz conjecture is defined in this way:  Take any number.\nIf it's even, divide it by two.\nIf it's odd, multiply it by 3, then add 1.\nEventually, you will end up with the value of 1.  There is no known number that will not eventually end up at 1.  // prints the collatz sequence defined by the argument\nvoid collatz(unsigned int);", 
             "title": "Exercise 2"
         }, 
         {
-            "location": "/lab_week_05/#stretch-goal-exercise-1", 
-            "text": "Write a class called  AnagramChecker  which \nkeeps track of strings and is able to tell\nif any other string is an anagram in in its\ndata structure.  Usage example:  #include  anagramchecker.h \n#include  iostream \n#include  string \nusing namespace std;\n\nvoid printIfAnagram(const AnagramChecker   a, string s) {\n    if(a.check(s)) {\n        cout   s     is an anagram of one of the words in the checker    endl;\n    } else {\n        cout   s     is not an anagram of one of the words in the checker    endl;\n    }\n}\n\nint main() {\n    AnagramChecker a;\n    a.add( hello );\n    a.add( bye );\n\n    printIfAnagram(a,  apple );\n    printIfAnagram(a,  olleh );\n}  The above program should print out   apple is not an anagram of one of the words in the checker\nolleh is an anagram of one of the words in the checker  Requirements, the data structure must meet the following\nspace and time complexity requirements:  Where  n  is the number of strings stored by the data structure.  Data Structure: O(n) space\n\nOperations:\n    add(string)\n        Time: O(log n)\n\n    check(string)\n        Time: O(log n)", 
-            "title": "Stretch-Goal Exercise 1"
+            "location": "/lab_week_08/#exercise-3", 
+            "text": "Write a multiplication function recursively.  // returns the product of the two arguments\ndouble mul(double, double);", 
+            "title": "Exercise 3"
         }, 
         {
-            "location": "/lab_week_05/#extra-bits-stretch-goal-exercise-1", 
-            "text": "Improve SG Exercise 1 so that the data structure guarantees\nthe following time complexities:   Data Structure: O(n) space\n\nOperations:\n    add(string)\n        Time: O(1) amortized\n\n    check(string)\n        Time: O(1) amortized", 
-            "title": "Extra Bits: Stretch-Goal Exercise 1"
+            "location": "/lab_week_08/#exercise-4", 
+            "text": "Write  pow  recursively.  pow  exponentiates a given value.\nGoogle  cmath pow  for more information.  // returns the exponentiation of the first argument to the second argument\ndouble pow(double base, unsigned int exponent);", 
+            "title": "Exercise 4"
+        }, 
+        {
+            "location": "/lab_week_08/#exercise-5", 
+            "text": "Write a function to print a cstring.  // prints a cstring\nvoid printForward(const char*);", 
+            "title": "Exercise 5"
+        }, 
+        {
+            "location": "/lab_week_08/#exercise-6", 
+            "text": "Write a function to print a cstring backwards.  // prints a cstring backwards\nvoid printBackward(const char*);", 
+            "title": "Exercise 6"
+        }, 
+        {
+            "location": "/lab_week_08/#exercise-7", 
+            "text": "Write  strlen  recursively.  // returns the length of the argument\nunsigned int myStrlen(const char*);", 
+            "title": "Exercise 7"
+        }, 
+        {
+            "location": "/lab_week_08/#exercise-8", 
+            "text": "Write  strcpy  recursively.  // copies the second cstring to the first cstring\nvoid myStrcpy(char*, const char*);", 
+            "title": "Exercise 8"
+        }, 
+        {
+            "location": "/lab_week_08/#exercise-9", 
+            "text": "Write  strcmp  recursively.  // compares the first string to the second, lexicographically\n// -1: argument1   argument2\n//  0: argument1 = argument2\n//  1: argument1   argument2\nint myStrcmp(const char*, const char*);", 
+            "title": "Exercise 9"
+        }, 
+        {
+            "location": "/lab_week_08/#exercise-10", 
+            "text": "Write  min  recursively.  // returns the index of the smallest element in an array of integers\n// first parameter is the array\n// second parameter is the size of the array\nunsigned int min(int*, unsigned int);", 
+            "title": "Exercise 10"
+        }, 
+        {
+            "location": "/dis_week_08/", 
+            "text": "Discussion Week 8: Recursion\n\n\nTrace through \nthis code\n and determine the output.", 
+            "title": "Discussion Week 8"
+        }, 
+        {
+            "location": "/dis_week_08/#discussion-week-8-recursion", 
+            "text": "Trace through  this code  and determine the output.", 
+            "title": "Discussion Week 8: Recursion"
         }
     ]
 }

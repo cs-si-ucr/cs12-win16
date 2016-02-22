@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab Week 8 - CS 12 SI Labs: Winter 2015</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Lab Week 8";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CS 12 SI Labs: Winter 2015</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../lab_week_03/">Lab Week 3</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../lab_week_04/">Lab Week 4</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Lab Week 8</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#lab-week-8-recursion">Lab Week 8: Recursion</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-1">Exercise 1</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-2">Exercise 2</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-3">Exercise 3</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-4">Exercise 4</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-5">Exercise 5</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-6">Exercise 6</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-7">Exercise 7</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-8">Exercise 8</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-9">Exercise 9</a></li>
+                
+                    <li><a class="toctree-l4" href="#exercise-10">Exercise 10</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../dis_week_08/">Discussion Week 8</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CS 12 SI Labs: Winter 2015</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Lab Week 8</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="lab-week-8-recursion">Lab Week 8: Recursion</h1>
+<p>Read your book to learn about recursion.</p>
+<h2 id="exercise-1">Exercise 1</h2>
+<p>Write a function to return the nth fibonacci number recursively.</p>
+<pre><code class="c++">/// Our fibonacci sequence is zero-indexed
+// 0 is first fibonacci number (argument is 0)
+// 1 is second fibonacci number (argument is 1)
+// 1 is third fibonacci number (argument is 2)
+// 2 is fourth fibonacci number (argument is 8)
+// 3 is fifth fibonacci number (argument is 4)
+// 5 is sixth fibonacci number (argument is 5)
+// 8 is seventh fibonacci number (argument is 6)
+// and so on...
+
+// returns the nth fibonacci number
+int fib(unsigned int);
+</code></pre>
+
+<h2 id="exercise-2">Exercise 2</h2>
+<p>Write a function to print to collatz conjecture sequence recursively.</p>
+<p>Remember that the collatz conjecture is defined in this way:</p>
+<p>Take any number.
+If it's even, divide it by two.
+If it's odd, multiply it by 3, then add 1.
+Eventually, you will end up with the value of 1.</p>
+<p>There is no known number that will not eventually end up at 1.</p>
+<pre><code class="c++">// prints the collatz sequence defined by the argument
+void collatz(unsigned int);
+</code></pre>
+
+<h2 id="exercise-3">Exercise 3</h2>
+<p>Write a multiplication function recursively.</p>
+<pre><code class="c++">// returns the product of the two arguments
+double mul(double, double);
+</code></pre>
+
+<h2 id="exercise-4">Exercise 4</h2>
+<p>Write <code>pow</code> recursively.</p>
+<p><code>pow</code> exponentiates a given value.
+Google <code>cmath pow</code> for more information.</p>
+<pre><code class="c++">// returns the exponentiation of the first argument to the second argument
+double pow(double base, unsigned int exponent);
+</code></pre>
+
+<h2 id="exercise-5">Exercise 5</h2>
+<p>Write a function to print a cstring.</p>
+<pre><code class="c++">// prints a cstring
+void printForward(const char*);
+</code></pre>
+
+<h2 id="exercise-6">Exercise 6</h2>
+<p>Write a function to print a cstring backwards.</p>
+<pre><code class="c++">// prints a cstring backwards
+void printBackward(const char*);
+</code></pre>
+
+<h2 id="exercise-7">Exercise 7</h2>
+<p>Write <code>strlen</code> recursively.</p>
+<pre><code class="c++">// returns the length of the argument
+unsigned int myStrlen(const char*);
+</code></pre>
+
+<h2 id="exercise-8">Exercise 8</h2>
+<p>Write <code>strcpy</code> recursively.</p>
+<pre><code class="c++">// copies the second cstring to the first cstring
+void myStrcpy(char*, const char*);
+</code></pre>
+
+<h2 id="exercise-9">Exercise 9</h2>
+<p>Write <code>strcmp</code> recursively.</p>
+<pre><code class="c++">// compares the first string to the second, lexicographically
+// -1: argument1 &lt; argument2
+//  0: argument1 = argument2
+//  1: argument1 &gt; argument2
+int myStrcmp(const char*, const char*);
+</code></pre>
+
+<h2 id="exercise-10">Exercise 10</h2>
+<p>Write <code>min</code> recursively.</p>
+<pre><code class="c++">// returns the index of the smallest element in an array of integers
+// first parameter is the array
+// second parameter is the size of the array
+unsigned int min(int*, unsigned int);
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../dis_week_08/" class="btn btn-neutral float-right" title="Discussion Week 8"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lab_week_04/" class="btn btn-neutral" title="Lab Week 4"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lab_week_04/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../dis_week_08/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
